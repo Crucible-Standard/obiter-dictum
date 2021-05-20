@@ -46,6 +46,15 @@ app.get('/stock/info', async (req, res, next) => {
   }).catch((error) => {
     res.status(400).send({ response_type: 'in_channel', text: response });
   });
+}).post('/stock/info', async (req, res, next) => {
+  requestsCount++;
+  logger.info(`/stock/info request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
+  await dictum.getStockInfo(req).then((response) => {
+    res.status(200).send({ response_type: 'in_channel', text: response });
+    logger.debug(response);
+  }).catch((error) => {
+    res.status(400).send({ response_type: 'in_channel', text: response });
+  });
 });
 
 /**
@@ -63,15 +72,27 @@ app.get('/stock/info', async (req, res, next) => {
   }).catch((error) => {
     res.status(400).send({ response_type: 'in_channel', text: response });
   });
+}).post('/stock/chart1', async (req, res, next) => {
+  requestsCount++;
+  logger.info(`/stock/chart1 request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
+  await dictum.getChartOne(req).then((response) => {
+    res.status(200).send({ response_type: 'in_channel', text: response });
+    logger.debug(response);
+  }).catch((error) => {
+    res.status(400).send({ response_type: 'in_channel', text: response });
+  });
 });
 
-/**
- * @param {Request} req - Express request object
- * @param {Response} res - Express response object
- * @param {Next} next - Express Next object
- * // getChartTwo
- */
- app.get('/stock/chart2', async (req, res, next) => {
+app.get('/stock/chart2', async (req, res, next) => {
+  requestsCount++;
+  logger.info(`/stock/chart2 request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
+  await dictum.getChartTwo(req).then((response) => {
+    res.status(200).send({ response_type: 'in_channel', text: response });
+    logger.debug(response);
+  }).catch((error) => {
+    res.status(400).send({ response_type: 'in_channel', text: response });
+  });
+}).post('/stock/chart2', async (req, res, next) => {
   requestsCount++;
   logger.info(`/stock/chart2 request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
   await dictum.getChartTwo(req).then((response) => {
