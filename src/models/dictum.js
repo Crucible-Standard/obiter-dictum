@@ -85,7 +85,7 @@ function getHeatMapTwo (req) {
 		let  returnstring = ``;
 		try {
 				// puppeteer usage as normal
-				puppeteer.launch({ headless: false }).then(async browser => {
+				puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']}).then(async browser => {
 					// open the browser and prepare a page
 					const page = await browser.newPage();
 
