@@ -103,6 +103,28 @@ app.get('/stock/chart2', async (req, res, next) => {
   });
 });
 
+
+
+app.get('/stock/heat', async (req, res, next) => {
+  requestsCount++;
+  logger.info(`/stock/heat request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
+  await dictum.getHeatMapTwo(req).then((response) => {
+    res.status(200).send({ response_type: 'in_channel', text: response });
+    logger.debug(response);
+  }).catch((error) => {
+    res.status(400).send({ response_type: 'in_channel', text: response });
+  });
+}).post('/stock/heat', async (req, res, next) => {
+  requestsCount++;
+  logger.info(`/stock/heat request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
+  await dictum.getHeatMapTwo(req).then((response) => {
+    res.status(200).send({ response_type: 'in_channel', text: response });
+    logger.debug(response);
+  }).catch((error) => {
+    res.status(400).send({ response_type: 'in_channel', text: response });
+  });
+});
+
 /**
  * @param {Request} req - Express request object
  * @param {Response} res - Express response object
@@ -117,7 +139,7 @@ app.get('/health', (req, res, next) => {
 });
 
 // heroku dynamically assigns your app a port, so you can't set the port to a fixed number.
-const server = app.listen(process.env.PORT || 5002, function () {
+const server = app.listen(process.env.PORT || 5024, function () {
   const host = server.address().address;
   const port = server.address().port;
 
