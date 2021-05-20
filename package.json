@@ -1,0 +1,36 @@
+{
+  "name": "obiter-dictum",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/app.js",
+  "scripts": {
+    "lint": "node_modules/.bin/eslint --format codeframe './lib/**/*.js'",
+    "lint-fix": "node_modules/.bin/eslint --fix --format codeframe './lib/**/*.js'",
+    "start": "node src/app.js",
+    "test": "node_modules/.bin/mocha tests/. --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Crucible-Finance/obiter-dictum.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Crucible-Finance/obiter-dictum/issues"
+  },
+  "homepage": "https://github.com/Crucible-Finance/obiter-dictum#readme",
+  "contributors": [
+    "Beau Bouchard <https://github.com/BeauBouchard>"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "alphavantage": "^2.2.0",
+    "express": "4.17.1",
+    "finvizor": "^1.0.7",
+    "helmet": "4.6.0",
+    "sst": "git+https://github.com/wh-iterabb-it/sst.git"
+  },
+  "devDependencies": {
+    "chai": "4.3.4",
+    "chai-http": "4.3.0",
+    "mocha": "8.4.0"
+  }
+}
