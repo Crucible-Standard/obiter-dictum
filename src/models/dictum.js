@@ -74,18 +74,12 @@ function getHeatMap (req) {
   });
 }
 
-function delay(time) {
-	return new Promise(function(resolve) { 
-			setTimeout(resolve, time)
-	});
-}
-
 function getHeatMapTwo (req) {
   return new Promise(async (resolve, reject) => {
 		let  returnstring = ``;
 		try {
 				// puppeteer usage as normal
-				puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']}).then(async browser => {
+				puppeteer.launch({ headless: false, args: ['--no-sandbox', '--disable-setuid-sandbox'] }).then(async browser => {
 					// open the browser and prepare a page
 					const page = await browser.newPage();
 
@@ -111,10 +105,10 @@ function getHeatMapTwo (req) {
 							).then(data => {
 								resolve(data.link);
 						}).catch(function(err) {
-							console.log("An error occured");
+							logger.error("An error occured" + err);
 					});
 					}).catch(function(err) {
-							console.log("An error occured");
+							logger.error("An error occured"+ err);
 					});
 
 					logger.info(`All done, check the screenshot. ✨`);

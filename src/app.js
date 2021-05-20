@@ -139,11 +139,18 @@ app.get('/health', (req, res, next) => {
 });
 
 // heroku dynamically assigns your app a port, so you can't set the port to a fixed number.
-const server = app.listen(process.env.PORT || 5024, function () {
+const server = app.listen(process.env.PORT || 5020, function () {
   const host = server.address().address;
   const port = server.address().port;
 
   logger.info(`app listening at http://${host}:${port}`);
 });
+
+process.on('SIGTERM', () => {
+  server.close( () => {
+    process.exit(0);
+  });
+});
+
 
 module.exports = server;
