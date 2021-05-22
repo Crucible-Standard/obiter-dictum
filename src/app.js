@@ -104,20 +104,19 @@ app.get('/stock/chart2', async (req, res, next) => {
 });
 
 
-
-app.get('/stock/heat', async (req, res, next) => {
+app.get('/stock/heatmap/pop', async (req, res, next) => {
   requestsCount++;
-  logger.info(`/stock/heat request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
-  await dictum.getHeatMapTwo(req).then((response) => {
+  logger.info(`/stock/heatmap/pop request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
+  await dictum.getHeatMapThree(req).then((response) => {
     res.status(200).send({ response_type: 'in_channel', text: response });
     logger.debug(response);
   }).catch((error) => {
     res.status(400).send({ response_type: 'in_channel', text: response });
   });
-}).post('/stock/heat', async (req, res, next) => {
+}).post('/stock/heatmap/pop', async (req, res, next) => {
   requestsCount++;
-  logger.info(`/stock/heat request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
-  await dictum.getHeatMapTwo(req).then((response) => {
+  logger.info(`/stock/heatmap/pop request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
+  await dictum.getHeatMapThree(req).then((response) => {
     res.status(200).send({ response_type: 'in_channel', text: response });
     logger.debug(response);
   }).catch((error) => {
