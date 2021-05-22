@@ -126,7 +126,7 @@ function getHeatMapThree (req) {
   return new Promise(async (resolve, reject) => {
 		let  returnstring = ``;
 		try {
-			puppeteer.launch().then(async browser => { // { args: ['--no-sandbox', '--disable-setuid-sandbox'] }
+			puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] }).then(async browser => { 
 				// open the browser and prepare a page
 				const page = await browser.newPage();
 
@@ -138,7 +138,6 @@ function getHeatMapThree (req) {
 
 				await page.goto('https://finance.yahoo.com/most-active/heatmap/');
 				
-
 				await page.screenshot({ path: 'map.png', fullPage: true });
 
 				// close the browser 
