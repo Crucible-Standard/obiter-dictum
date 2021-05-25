@@ -104,26 +104,6 @@ app.get('/stock/chart2', async (req, res, next) => {
 });
 
 
-app.get('/stock/heatmap/pop', async (req, res, next) => {
-  requestsCount++;
-  logger.info(`/stock/heatmap/pop request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
-  await dictum.getHeatMapThree(req).then((response) => {
-    res.status(200).send({ response_type: 'in_channel', text: response });
-    logger.debug(response);
-  }).catch((error) => {
-    res.status(400).send({ response_type: 'in_channel', text: response });
-  });
-}).post('/stock/heatmap/pop', async (req, res, next) => {
-  requestsCount++;
-  logger.info(`/stock/heatmap/pop request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
-  await dictum.getHeatMapThree(req).then((response) => {
-    res.status(200).send({ response_type: 'in_channel', text: response });
-    logger.debug(response);
-  }).catch((error) => {
-    res.status(400).send({ response_type: 'in_channel', text: response });
-  });
-});
-
 /**
  * @param {Request} req - Express request object
  * @param {Response} res - Express response object

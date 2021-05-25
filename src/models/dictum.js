@@ -46,125 +46,125 @@ function getChartTwo (req) {
   });
 }
 
-function getHeatMap (req) {
-  return new Promise(async (resolve, reject) => {
-		const url = ``;
-		let returnstring = ``;
-		try {
-			const response = await fetch(url, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-			});
+// function getHeatMap (req) {
+//   return new Promise(async (resolve, reject) => {
+// 		const url = ``;
+// 		let returnstring = ``;
+// 		try {
+// 			const response = await fetch(url, {
+// 				method: "POST",
+// 				headers: {
+// 					"Content-Type": "application/json",
+// 				},
+// 			});
 
-			if (!response.ok) {
-				logger.warn(
-					`Error fetching ${response.status}, ${response.message}`
-				);
-				resolve("Are you trying to make me crash?");
-			}
-		} catch (error) {
-			logger.error(`Error trying to getEvents ${error}`);
-			resolve("Are you trying to make me crash?");
-		}
+// 			if (!response.ok) {
+// 				logger.warn(
+// 					`Error fetching ${response.status}, ${response.message}`
+// 				);
+// 				resolve("Are you trying to make me crash?");
+// 			}
+// 		} catch (error) {
+// 			logger.error(`Error trying to getEvents ${error}`);
+// 			resolve("Are you trying to make me crash?");
+// 		}
 
 
-		resolve(returnstring);
-  });
-}
+// 		resolve(returnstring);
+//   });
+// }
 
-function getHeatMapTwo (req) {
-  return new Promise(async (resolve, reject) => {
-		let  returnstring = ``;
-		try {
-			// puppeteer usage as normal
-			// NOTE: this configuration does not normally work on heroku, but you can get it to work with buildpacks that equal outside the ~300mb limit for free open source software. 
-			// also overall its a terrible idea, although if you had to make it work, a good caching strategy makes up for bad code. 
-			puppeteer.launch({ headless: false, args: ['--no-sandbox', '--disable-setuid-sandbox'] }).then(async browser => {
-				// open the browser and prepare a page
-				const page = await browser.newPage();
+// function getHeatMapTwo (req) {
+//   return new Promise(async (resolve, reject) => {
+// 		let  returnstring = ``;
+// 		try {
+// 			// puppeteer usage as normal
+// 			// NOTE: this configuration does not normally work on heroku, but you can get it to work with buildpacks that equal outside the ~300mb limit for free open source software. 
+// 			// also overall its a terrible idea, although if you had to make it work, a good caching strategy makes up for bad code. 
+// 			puppeteer.launch({ headless: false, args: ['--no-sandbox', '--disable-setuid-sandbox'] }).then(async browser => {
+// 				// open the browser and prepare a page
+// 				const page = await browser.newPage();
 
-				// set the size of the viewport, so our screenshot will have the desired size
-				await page.setViewport({
-					width: 1280,
-					height: 800
-				});
+// 				// set the size of the viewport, so our screenshot will have the desired size
+// 				await page.setViewport({
+// 					width: 1280,
+// 					height: 800
+// 				});
 
-				page.goto('https://finviz.com/map.ashx?t=sec');
+// 				page.goto('https://finviz.com/map.ashx?t=sec');
 				
-				await page.waitForTimeout(500);
+// 				await page.waitForTimeout(500);
 
-				await page.screenshot({ path: 'map.png', fullPage: true });
+// 				await page.screenshot({ path: 'map.png', fullPage: true });
 
-				// close the browser 
-				await browser.close();
+// 				// close the browser 
+// 				await browser.close();
 
-				sharp('map.png').extract({ width: 1050, height: 640, left: 210 , top: 170 }).toFile('mapc.png')
-					.then(async (new_file_info) => {
-						await imgurUploader(fs.readFileSync('mapc.png'),
-							{title: `Heat Map ${new Date().getTime()}`}
-						).then(data => {
-							resolve(data.link);
-					}).catch(function(err) {
-						logger.error("An error occured" + err);
-				});
-				}).catch(function(err) {
-						logger.error("An error occured"+ err);
-				});
+// 				sharp('map.png').extract({ width: 1050, height: 640, left: 210 , top: 170 }).toFile('mapc.png')
+// 					.then(async (new_file_info) => {
+// 						await imgurUploader(fs.readFileSync('mapc.png'),
+// 							{title: `Heat Map ${new Date().getTime()}`}
+// 						).then(data => {
+// 							resolve(data.link);
+// 					}).catch(function(err) {
+// 						logger.error("An error occured" + err);
+// 				});
+// 				}).catch(function(err) {
+// 						logger.error("An error occured"+ err);
+// 				});
 
-				logger.info(`All done, check the screenshot. ✨`);
-			});
+// 				logger.info(`All done, check the screenshot. ✨`);
+// 			});
 
-		} catch (error) {
-			logger.error(`An error occured`);
-		}
-  });
-}
+// 		} catch (error) {
+// 			logger.error(`An error occured`);
+// 		}
+//   });
+// }
 
-function getHeatMapThree (req) {
-  return new Promise(async (resolve, reject) => {
-		let  returnstring = ``;
-		try {
-			puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] }).then(async browser => { 
-				// open the browser and prepare a page
-				const page = await browser.newPage();
+// function getHeatMapThree (req) {
+//   return new Promise(async (resolve, reject) => {
+// 		let  returnstring = ``;
+// 		try {
+// 			puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] }).then(async browser => { 
+// 				// open the browser and prepare a page
+// 				const page = await browser.newPage();
 
-				// set the size of the viewport, so our screenshot will have the desired size
-				await page.setViewport({
-					width: 1280,
-					height: 800
-				});
+// 				// set the size of the viewport, so our screenshot will have the desired size
+// 				await page.setViewport({
+// 					width: 1280,
+// 					height: 800
+// 				});
 
-				await page.goto('https://finance.yahoo.com/most-active/heatmap/');
+// 				await page.goto('https://finance.yahoo.com/most-active/heatmap/');
 				
-				await page.screenshot({ path: 'map.png', fullPage: true });
+// 				await page.screenshot({ path: 'map.png', fullPage: true });
 
-				// close the browser 
-				await browser.close();
+// 				// close the browser 
+// 				await browser.close();
 
-				sharp('map.png').extract({ width: 1240, height: 720, left: 20 , top: 630 }).toFile('mapc.png')
-					.then(async (new_file_info) => {
-						await imgurUploader(
-							fs.readFileSync('mapc.png'),
-							{title: `Heat Map ${new Date().getTime()}`
-						}
-					).then(data => {
-						resolve(data.link);
-					}).catch(function(err) {
-						logger.error("An error occured" + err);
-				});
-				}).catch(function(err) {
-						logger.error("An error occured"+ err);
-				});
-				logger.info(`All done, check the screenshot. ✨`);
-			});
+// 				sharp('map.png').extract({ width: 1240, height: 720, left: 20 , top: 630 }).toFile('mapc.png')
+// 					.then(async (new_file_info) => {
+// 						await imgurUploader(
+// 							fs.readFileSync('mapc.png'),
+// 							{title: `Heat Map ${new Date().getTime()}`
+// 						}
+// 					).then(data => {
+// 						resolve(data.link);
+// 					}).catch(function(err) {
+// 						logger.error("An error occured" + err);
+// 				});
+// 				}).catch(function(err) {
+// 						logger.error("An error occured"+ err);
+// 				});
+// 				logger.info(`All done, check the screenshot. ✨`);
+// 			});
 
-		} catch (error) {
-			logger.error(`An error occured`);
-		}
-  });
-}
+// 		} catch (error) {
+// 			logger.error(`An error occured`);
+// 		}
+//   });
+// }
 
 function getStockInfo (req) {
   return new Promise(async (resolve, reject) => {
@@ -199,4 +199,4 @@ function getStockInfo (req) {
   });
 }
 
-module.exports = {getStockInfo, getChartOne, getChartTwo, getHeatMapTwo, getHeatMapThree}
+module.exports = {getStockInfo, getChartOne, getChartTwo}
