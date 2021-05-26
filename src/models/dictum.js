@@ -41,7 +41,33 @@ function getChartTwo (req) {
 
 			resolve(returnstring);
 		} else {
-			resolve(`Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/stock/chart2?ticker=AMD`);
+			resolve(`Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/chart/finviz/day?ticker=AMD`);
+		}
+  });
+}
+
+function getFinVizChartWeek (req) {
+  return new Promise(async (resolve, reject) => {
+		if (((req.query.ticker) && req.query.ticker.length > 0) || ((req.body.text) && req.body.text.length > 0)) {
+			const args = req.query.ticker || req.body.text;
+			const returnstring = `https://charts.finviz.com/chart.ashx?width=400&height=151&t=${args}&p=i15&ty=c&s=l&rr=${new Date().getTime()}`
+
+			resolve(returnstring);
+		} else {
+			resolve(`Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/chart/finviz/week?ticker=AMD`);
+		}
+  });
+}
+
+function getFinVizChartYear (req) {
+  return new Promise(async (resolve, reject) => {
+		if (((req.query.ticker) && req.query.ticker.length > 0) || ((req.body.text) && req.body.text.length > 0)) {
+			const args = req.query.ticker || req.body.text;
+			const returnstring = `https://charts.finviz.com/chart.ashx?width=400&height=151&t=${args}&p=i100&ty=c&s=l&rr=${new Date().getTime()}`
+
+			resolve(returnstring);
+		} else {
+			resolve(`Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/chart/finviz/year?ticker=AMD`);
 		}
   });
 }
@@ -68,8 +94,6 @@ function getChartTwo (req) {
 // 			logger.error(`Error trying to getEvents ${error}`);
 // 			resolve("Are you trying to make me crash?");
 // 		}
-
-
 // 		resolve(returnstring);
 //   });
 // }
@@ -90,16 +114,11 @@ function getChartTwo (req) {
 // 					width: 1280,
 // 					height: 800
 // 				});
-
 // 				page.goto('https://finviz.com/map.ashx?t=sec');
-				
 // 				await page.waitForTimeout(500);
-
 // 				await page.screenshot({ path: 'map.png', fullPage: true });
-
 // 				// close the browser 
 // 				await browser.close();
-
 // 				sharp('map.png').extract({ width: 1050, height: 640, left: 210 , top: 170 }).toFile('mapc.png')
 // 					.then(async (new_file_info) => {
 // 						await imgurUploader(fs.readFileSync('mapc.png'),
@@ -112,10 +131,8 @@ function getChartTwo (req) {
 // 				}).catch(function(err) {
 // 						logger.error("An error occured"+ err);
 // 				});
-
 // 				logger.info(`All done, check the screenshot. ✨`);
 // 			});
-
 // 		} catch (error) {
 // 			logger.error(`An error occured`);
 // 		}
@@ -129,20 +146,15 @@ function getChartTwo (req) {
 // 			puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] }).then(async browser => { 
 // 				// open the browser and prepare a page
 // 				const page = await browser.newPage();
-
 // 				// set the size of the viewport, so our screenshot will have the desired size
 // 				await page.setViewport({
 // 					width: 1280,
 // 					height: 800
 // 				});
-
 // 				await page.goto('https://finance.yahoo.com/most-active/heatmap/');
-				
 // 				await page.screenshot({ path: 'map.png', fullPage: true });
-
 // 				// close the browser 
 // 				await browser.close();
-
 // 				sharp('map.png').extract({ width: 1240, height: 720, left: 20 , top: 630 }).toFile('mapc.png')
 // 					.then(async (new_file_info) => {
 // 						await imgurUploader(
@@ -159,7 +171,6 @@ function getChartTwo (req) {
 // 				});
 // 				logger.info(`All done, check the screenshot. ✨`);
 // 			});
-
 // 		} catch (error) {
 // 			logger.error(`An error occured`);
 // 		}
@@ -199,4 +210,4 @@ function getStockInfo (req) {
   });
 }
 
-module.exports = {getStockInfo, getChartOne, getChartTwo}
+module.exports = {getStockInfo, getChartOne, getChartTwo, getFinVizChartWeek, getFinVizChartYear}

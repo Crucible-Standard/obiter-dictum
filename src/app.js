@@ -63,18 +63,18 @@ app.get('/stock/info', async (req, res, next) => {
  * @param {Next} next - Express Next object
  * // getChartOne
  */
- app.get('/stock/chart1', async (req, res, next) => {
+ app.get('/chart/1', async (req, res, next) => {
   requestsCount++;
-  logger.info(`/stock/chart1 request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
+  logger.info(`/stock/c1 request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
   await dictum.getChartOne(req).then((response) => {
     res.status(200).send({ response_type: 'in_channel', text: response });
     logger.debug(response);
   }).catch((error) => {
     res.status(400).send({ response_type: 'in_channel', text: response });
   });
-}).post('/stock/chart1', async (req, res, next) => {
+}).post('/chart/1', async (req, res, next) => {
   requestsCount++;
-  logger.info(`/stock/chart1 request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
+  logger.info(`/chart/1 request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
   await dictum.getChartOne(req).then((response) => {
     res.status(200).send({ response_type: 'in_channel', text: response });
     logger.debug(response);
@@ -83,19 +83,59 @@ app.get('/stock/info', async (req, res, next) => {
   });
 });
 
-app.get('/stock/chart2', async (req, res, next) => {
+app.get('/chart/finviz/day', async (req, res, next) => {
   requestsCount++;
-  logger.info(`/stock/chart2 request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
+  logger.info(`/chart/finviz/day request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
   await dictum.getChartTwo(req).then((response) => {
     res.status(200).send({ response_type: 'in_channel', text: response });
     logger.debug(response);
   }).catch((error) => {
     res.status(400).send({ response_type: 'in_channel', text: response });
   });
-}).post('/stock/chart2', async (req, res, next) => {
+}).post('/chart/finviz/day', async (req, res, next) => {
   requestsCount++;
-  logger.info(`/stock/chart2 request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
+  logger.info(`/chart/finviz/day request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
   await dictum.getChartTwo(req).then((response) => {
+    res.status(200).send({ response_type: 'in_channel', text: response });
+    logger.debug(response);
+  }).catch((error) => {
+    res.status(400).send({ response_type: 'in_channel', text: response });
+  });
+});
+
+app.get('/chart/finviz/week', async (req, res, next) => {
+  requestsCount++;
+  logger.info(`/chart/finviz/week request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
+  await dictum.getFinVizChartWeek(req).then((response) => {
+    res.status(200).send({ response_type: 'in_channel', text: response });
+    logger.debug(response);
+  }).catch((error) => {
+    res.status(400).send({ response_type: 'in_channel', text: response });
+  });
+}).post('/chart/finviz/week', async (req, res, next) => {
+  requestsCount++;
+  logger.info(`/chart/finviz/week request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
+  await dictum.getFinVizChartWeek(req).then((response) => {
+    res.status(200).send({ response_type: 'in_channel', text: response });
+    logger.debug(response);
+  }).catch((error) => {
+    res.status(400).send({ response_type: 'in_channel', text: response });
+  });
+});
+
+app.get('/chart/finviz/year', async (req, res, next) => {
+  requestsCount++;
+  logger.info(`/chart/finviz/year request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
+  await dictum.getFinVizChartYear(req).then((response) => {
+    res.status(200).send({ response_type: 'in_channel', text: response });
+    logger.debug(response);
+  }).catch((error) => {
+    res.status(400).send({ response_type: 'in_channel', text: response });
+  });
+}).post('/chart/finviz/year', async (req, res, next) => {
+  requestsCount++;
+  logger.info(`/chart/finviz/year request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
+  await dictum.getFinVizChartYear(req).then((response) => {
     res.status(200).send({ response_type: 'in_channel', text: response });
     logger.debug(response);
   }).catch((error) => {
