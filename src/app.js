@@ -67,7 +67,7 @@ app.get('/stock/info', async (req, res, next) => {
   requestsCount++;
   logger.info(`/chart/1 request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
   await dictum.getChartOne(req).then((response) => {
-    res.status(200).send(response_type: 'in_channel', {
+    res.status(200).send({
       "type": "image",
       "title": {
         "type": "plain_text",
@@ -84,7 +84,7 @@ app.get('/stock/info', async (req, res, next) => {
   requestsCount++;
   logger.info(`/chart/1 request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
   await dictum.getChartOne(req).then((response) => {
-    res.status(200).send(response_type: 'in_channel', {
+    res.status(200).send({
       "type": "image",
       "title": {
         "type": "plain_text",
@@ -103,7 +103,7 @@ app.get('/chart/finviz/day', async (req, res, next) => {
   requestsCount++;
   logger.info(`/chart/finviz/day request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
   await dictum.getChartTwo(req).then((response) => {
-    res.status(200).send(response_type: 'in_channel', {
+    res.status(200).send({
       "type": "image",
       "title": {
         "type": "plain_text",
@@ -120,7 +120,7 @@ app.get('/chart/finviz/day', async (req, res, next) => {
   requestsCount++;
   logger.info(`/chart/finviz/day request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
   await dictum.getChartTwo(req).then((response) => {
-    res.status(200).send(response_type: 'in_channel', {
+    res.status(200).send({
       "type": "image",
       "title": {
         "type": "plain_text",
@@ -139,7 +139,7 @@ app.get('/chart/finviz/week', async (req, res, next) => {
   requestsCount++;
   logger.info(`/chart/finviz/week request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
   await dictum.getFinVizChartWeek(req).then((response) => {
-    res.status(200).send(response_type: 'in_channel', {
+    res.status(200).send({
       "type": "image",
       "title": {
         "type": "plain_text",
@@ -156,7 +156,7 @@ app.get('/chart/finviz/week', async (req, res, next) => {
   requestsCount++;
   logger.info(`/chart/finviz/week request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
   await dictum.getFinVizChartWeek(req).then((response) => {
-    res.status(200).send(response_type: 'in_channel', {
+    res.status(200).send({
       "type": "image",
       "title": {
         "type": "plain_text",
@@ -175,7 +175,7 @@ app.get('/chart/finviz/year', async (req, res, next) => {
   requestsCount++;
   logger.info(`/chart/finviz/year request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
   await dictum.getFinVizChartYear(req).then((response) => {
-    res.status(200).send(response_type: 'in_channel', {
+    res.status(200).send({
       "type": "image",
       "title": {
         "type": "plain_text",
@@ -192,7 +192,7 @@ app.get('/chart/finviz/year', async (req, res, next) => {
   requestsCount++;
   logger.info(`/chart/finviz/year request from ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip}`);
   await dictum.getFinVizChartYear(req).then((response) => {
-    res.status(200).send(response_type: 'in_channel', {
+    res.status(200).send({
       "type": "image",
       "title": {
         "type": "plain_text",
