@@ -1,24 +1,6 @@
 const { logger, format } = require('sst');
 const finvizor = require('finvizor');
-const fetch = require("node-fetch");
-const fs = require('fs');
-// puppeteer-extra is a drop-in replacement for puppeteer,
-// it augments the installed puppeteer with plugin functionality
-const puppeteer = require('puppeteer-extra')
-
-// add stealth plugin and use defaults (all evasion techniques)
-const StealthPlugin = require('puppeteer-extra-plugin-stealth')
-puppeteer.use(StealthPlugin());
-const imgurUploader = require('imgur-uploader');
-
-const sharp = require('sharp');
- 
- 
-
-const main = async () => {
-  const stock = await finvizor.stock('AAPL')
-  console.log(stock)
-}
+const util = require('util');
 
 function getChartOne (req) {
   return new Promise(async (resolve, reject) => {
@@ -185,11 +167,14 @@ function getStockInfo (req) {
 				const stock = await finvizor.stock(args);
 				stock.change = (stock.change < 0) ? `📉 (${stock.change})%` : `📈 ${stock.change}%`;
 				// stock.targetPrice = (stock.targetPrice < stock.price) ? `🚨 ${stock.targetPrice}` : `✔️ ${stock.targetPrice}`;
+
+				console.log(util.inspect(stock));
 				const returnstring = 
 `> *${stock.ticker}* - *${stock.name}*
 > *Current Price:* ${stock.price}	${stock.change}
 > *52-week Range:* ${stock.range52W.low} - ${stock.range52W.high}
 > *Target Price:* ${stock.targetPrice}
+> *Market Cap:* ${format.formatMoney(stock.marketCap)}
 > *Current Volume:* ${stock.volume}
 > *Average Volume:* ${stock.avgVolume}
 > *Sector:* ${stock.sector}
