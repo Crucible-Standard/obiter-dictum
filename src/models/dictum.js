@@ -69,7 +69,8 @@ function getStockInfo (req) {
 `> *${stock.ticker}* - *${stock.name}*
 > *Current Price:* ${stock.price}	${stock.change}
 > *Relative Strength Index (RSI):* ${stock.rsi}
-> *52-week Strength:* ${(stock.price/stock.range52W.low*100*-100).toFixed(2)}% from low - ${(stock.price/stock.range52W.high*100*-100).toFixed(2)}% from high
+1 – (10/
+> *52-week Strength:* ${(1 – (stock.price/stock.range52W.high)*100).toFixed(2)}% from High - ${(1 – (stock.price/stock.range52W.low)*100).toFixed(2)}% from Low
 > *Target Price:* ${stock.targetPrice}
 > *Market Cap:* ${format.formatMoney(stock.marketCap)}
 > *Current Volume:* ${stock.volume}
