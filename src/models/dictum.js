@@ -65,15 +65,15 @@ function getStockInfo (req) {
 				stock.rsi = (stock.rsi > 70) ? `📉 ${stock.rsi} Overbought 🚩` : (stock.rsi < 30) ? `📈 ${stock.rsi} Oversold ✅` : `${stock.rsi}`;
 				stock.strength = `${(1 - (stock.price/stock.range52W.high)*100).toFixed(2)}% from High / ${((stock.price/stock.range52W.low - 1)*100).toFixed(2)}%  from Low`;
 				console.log(util.inspect(stock));
-				stock.sma20 = (stock.sma20 > stock.price) ? `📉 ${stock.sma20}` : `📈 ${stock.sma20}`;
-				stock.sma50 = (stock.sma50 > stock.price) ? `📉 ${stock.sma50}` : `📈 ${stock.sma50}`;
-				stock.sma200 = (stock.sma200 > stock.price) ? `📉 ${stock.sma200}` : `📈 ${stock.sma200}`;
+				stock.sma20 = (stock.sma20 > stock.price) ? `${stock.sma20} 🚩` : `${stock.sma20} ✅`;
+				stock.sma50 = (stock.sma50 > stock.price) ? `${stock.sma50} 🚩` : `${stock.sma50} ✅`;
+				stock.sma200 = (stock.sma200 > stock.price) ? `${stock.sma200} 🚩` : `${stock.sma200} ✅`;
 				const returnstring =
 `> *${stock.ticker}* - *${stock.name}*
 > *Current Price:* ${stock.price}	${stock.change}
 > *Relative Strength Index (RSI):* ${stock.rsi}
 > *52-week Strength:* ${stock.strength}
-
+> *52-week Range:* ${stock.range52W.low} - ${stock.range52W.high}
 > *Target Price:* ${stock.targetPrice}
 > *Market Cap:* ${format.formatMoney(stock.marketCap)}
 > *Current Volume:* ${stock.volume}
