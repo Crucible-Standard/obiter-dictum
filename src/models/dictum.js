@@ -82,7 +82,7 @@ function getStockInfo (req) {
 > *Shares Float:* ${stock.shsFloat}
 > *sma20:* ${stock.sma20}
 > *sma50:* ${stock.sma50}
-> *sma200:* ${stock.sma200}
+> *sma200:* ${stock.sma200}`;
 				resolve(returnstring);
 			} catch(error) {
 				logger.error(`Error ${error}`);
