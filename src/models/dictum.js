@@ -61,8 +61,8 @@ function getStockInfo (req) {
 			try {
 				const stock = await finvizor.stock(args);
 				stock.change = (stock.change < 0) ? `📉 (${stock.change})%` : `📈 ${stock.change}%`;
-				// stock.targetPrice = (stock.targetPrice < stock.price) ? `🚨 ${stock.targetPrice}` : `✔️ ${stock.targetPrice}`;
-				stock.rsi = (stock.rsi > 70) ? `📉 ${stock.rsi} Overbought` : (stock.rsi < 30) ? `📉 ${stock.rsi} Oversold` : `${stock.rsi}`;
+				stock.targetPrice = (stock.targetPrice < stock.price) ? `${stock.targetPrice} 🚩` : `${stock.targetPrice} ✅`;
+				stock.rsi = (stock.rsi > 70) ? `📉 ${stock.rsi} Overbought 🚩` : (stock.rsi < 30) ? `📈 ${stock.rsi} Oversold ✅` : `${stock.rsi}`;
 
 				console.log(util.inspect(stock));
 				const returnstring =
