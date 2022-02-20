@@ -62,12 +62,14 @@ function getStockInfo (req) {
 				const stock = await finvizor.stock(args);
 				stock.change = (stock.change < 0) ? `📉 (${stock.change})%` : `📈 ${stock.change}%`;
 				// stock.targetPrice = (stock.targetPrice < stock.price) ? `🚨 ${stock.targetPrice}` : `✔️ ${stock.targetPrice}`;
+				stock.rsi = (stock.rsi > 70) ? `📉 ${stock.rsi} Overbought` : (stock.rsi < 30) ? `📉 ${stock.rsi} Oversold` : `${stock.rsi}`;
 
 				console.log(util.inspect(stock));
 				const returnstring =
 `> *${stock.ticker}* - *${stock.name}*
 > *Current Price:* ${stock.price}	${stock.change}
-> *52-week Range:* ${stock.range52W.low} - ${stock.range52W.high}
+> *Relative Strength Index (RSI):* ${stock.rsi}
+> *52-week Strength:* ${(stock.price/stock.range52W.low*100*-100).toFixed(2)}% from low - ${(stock.price/stock.range52W.high*100*-100).toFixed(2)}% from high
 > *Target Price:* ${stock.targetPrice}
 > *Market Cap:* ${format.formatMoney(stock.marketCap)}
 > *Current Volume:* ${stock.volume}
