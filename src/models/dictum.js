@@ -63,14 +63,13 @@ function getStockInfo (req) {
 				stock.change = (stock.change < 0) ? `📉 (${stock.change})%` : `📈 ${stock.change}%`;
 				stock.targetPrice = (stock.targetPrice < stock.price) ? `${stock.targetPrice} 🚩` : `${stock.targetPrice} ✅`;
 				stock.rsi = (stock.rsi > 70) ? `📉 ${stock.rsi} Overbought 🚩` : (stock.rsi < 30) ? `📈 ${stock.rsi} Oversold ✅` : `${stock.rsi}`;
-
+				stock.strength = `${(1 - (stock.price/stock.range52W.high)*100).toFixed(2)}% from High - ${(1 - (stock.price/stock.range52W.low)*100).toFixed(2)}% from Low`;
 				console.log(util.inspect(stock));
 				const returnstring =
 `> *${stock.ticker}* - *${stock.name}*
 > *Current Price:* ${stock.price}	${stock.change}
 > *Relative Strength Index (RSI):* ${stock.rsi}
-1 – (10/
-> *52-week Strength:* ${(1 – (stock.price/stock.range52W.high)*100).toFixed(2)}% from High - ${(1 – (stock.price/stock.range52W.low)*100).toFixed(2)}% from Low
+> *52-week Strength:* ${stock.strength}
 > *Target Price:* ${stock.targetPrice}
 > *Market Cap:* ${format.formatMoney(stock.marketCap)}
 > *Current Volume:* ${stock.volume}
