@@ -33,21 +33,45 @@ curl
 
 ## REST Endpoints 
 
-### /finviz/day
+### /chart/finviz/day
 
-Finviz Daily Chart image of the ticker.
+When you pass the `ticker` it will return a live data image from Finviz of the Daily Chart.
+
+#### Example Request
+
+```
+curl https://obiter-dictum-prod.herokuapp.com/chart/finviz/day?ticker=m
+```
 
 ### /stock/chart1
 
 a Different Daily chart
 
-### /finviz/week
+#### Example Request
 
-Finviz Weekly Chart
+```
+curl https://obiter-dictum-prod.herokuapp.com/stock/chart1?ticker=m
+```
 
-### /finviz/year
+### /chart/finviz/week
 
-Finviz YTD Chart
+When you pass the `ticker` it will return a live data image from Finviz of the Weekly Chart.
+
+#### Example Request
+
+```
+curl https://obiter-dictum-prod.herokuapp.com/chart/finviz/week?ticker=m
+```
+
+### /chart/finviz/year
+
+When you pass the `ticker` it will return a live data image from Finviz of the YTD Chart.
+
+#### Example Request
+
+```
+curl https://obiter-dictum-prod.herokuapp.com/chart/finviz/year?ticker=m
+```
 
 ### /stock/info
 
@@ -55,21 +79,27 @@ Returns generic stock info for each symbol. This is mostly used to see the price
 
 Full list of information returned: 
 
-**Current Price** - returns the share price in USD, the daily percentage move, and an emoji up or down chart.
-**Relative Strength Index (RSI)** - exactly what it says
-**52-week Range** - The 52-week high and low range.
-**Target Price** - based on the PT from finviz, returns the average PT, and ✅ emoji if the price is below PT, if below.   31.77 
-**Market Cap** - total market cap in dollars
-**Current Volume** - current day's trading volume in shares
-**Average Volume** - current day's trading volume in shares
-**Sector** - exactly what it says
-**Industry** - exactly what it says
-**Country** - exactly what it says
-**Insider Ownership** - percentage of shares owned inside
-**Shares Outstanding** - company's stock currently held by all its shareholders, including share blocks held by institutional investors ect...
-**sma20** - Simple Moving Average 20 days
-**sma50** - Simple Moving Average 50 days
-**sma200** - Simple Moving Average 200 days
+ * **Current Price** - returns the share price in USD, the daily percentage move, and an emoji up or down chart.
+ * **Relative Strength Index (RSI)** - exactly what it says
+ * **52-week Range** - The 52-week high and low range.
+ * **Target Price** - based on the PT from finviz, returns the average PT, and ✅ emoji if the price is below PT, if below.   31.77 
+ * **Market Cap** - total market cap in dollars
+ * **Current Volume** - current day's trading volume in shares
+ * **Average Volume** - current day's trading volume in shares
+ * **Sector** - exactly what it says
+ * **Industry** - exactly what it says
+ * **Country** - exactly what it says
+ * **Insider Ownership** - percentage of shares owned inside
+ * **Shares Outstanding** - company's stock currently held by all its shareholders, including share blocks held by institutional investors ect...
+ * **sma20** - Simple Moving Average 20 days
+ * **sma50** - Simple Moving Average 50 days
+ * **sma200** - Simple Moving Average 200 days
+
+#### Example Request
+
+```
+curl https://obiter-dictum-prod.herokuapp.com/stock/info?ticker=m
+```
 
 #### Example Response 
 
