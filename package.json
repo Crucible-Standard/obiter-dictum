@@ -4,19 +4,16 @@
   "description": "",
   "main": "./src/app.js",
   "scripts": {
-    "lint": "node_modules/.bin/eslint --format codeframe './lib/**/*.js'",
-    "lint-fix": "node_modules/.bin/eslint --fix --format codeframe './lib/**/*.js'",
     "start": "node src/app.js",
-    "test": "node_modules/.bin/mocha tests/. --recursive"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Crucible-Finance/obiter-dictum.git"
+    "url": "git+https://github.com/Crucible-Standard/obiter-dictum.git"
   },
   "bugs": {
-    "url": "https://github.com/Crucible-Finance/obiter-dictum/issues"
+    "url": "https://github.com/Crucible-Standard/obiter-dictum/issues"
   },
-  "homepage": "https://github.com/Crucible-Finance/obiter-dictum#readme",
+  "homepage": "https://github.com/Crucible-Standard/obiter-dictum#readme",
   "contributors": [
     "Beau Bouchard <https://github.com/BeauBouchard>"
   ],
@@ -25,10 +22,6 @@
     "express": "4.17.1",
     "finvizor": "^1.0.7",
     "helmet": "4.6.0",
-    "imgur-uploader": "^4.2.1",
-    "puppeteer": "^9.1.1",
-    "puppeteer-extra": "^3.1.18",
-    "puppeteer-extra-plugin-stealth": "^2.7.8",
     "sharp": "^0.28.2",
     "sst": "git+https://github.com/wh-iterabb-it/sst.git"
   }
