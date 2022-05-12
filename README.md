@@ -1,5 +1,7 @@
 # obiter-dictum
 
+[![Known Vulnerabilities](https://snyk.io/test/github/Crucible-Standard/obiter-dictum/badge.svg)]
+
 A small financial api / tool which is used to get short delayed information about stock tickers from finviz's and other APIs. 
 
 The main usage is to get images for discord and slack servers, however it also is used to get some bare metrics on a ticker/symbol. 
