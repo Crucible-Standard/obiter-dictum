@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "express": "4.18.1",
-    "finvizor": "1.0.7",
+    "finvizor": "1.1.0",
     "helmet": "5.0.2",
     "sst": "git+https://github.com/wh-iterabb-it/sst.git"
   },
