@@ -1,74 +1,118 @@
-const { logger, format } = require('sst');
-const finvizor = require('finvizor');
-const util = require('util');
+const { logger, format } = require("sst");
+const finvizor = require("finvizor");
+const util = require("util");
 
-function getChartOne (req) {
-  return new Promise(async (resolve, reject) => {
-		if (((req.query.ticker) && req.query.ticker.length > 0) || ((req.body.text) && req.body.text.length > 0)) {
-			const args = req.query.ticker || req.body.text;
-			const returnstring = `https://api.wsj.net/api/kaavio/charts/big.chart?nosettings=1&symb=${args}&type=4&time=1&freq=9&style=320&lf=1&lf2=0&lf3=0&size=3&height=335&width=579&mocktick=1&rr=${new Date().getTime()}`
+function getChartOne(req) {
+  /*eslint-disable */
+  return new Promise(async (resolve) => {
+    /*eslint-enable */
+    if (
+      (req.query.ticker && req.query.ticker.length > 0) ||
+      (req.body.text && req.body.text.length > 0)
+    ) {
+      const args = req.query.ticker || req.body.text;
+      const returnstring = `https://api.wsj.net/api/kaavio/charts/big.chart?nosettings=1&symb=${args}&type=4&time=1&freq=9&style=320&lf=1&lf2=0&lf3=0&size=3&height=335&width=579&mocktick=1&rr=${new Date().getTime()}`;
 
-			resolve(returnstring);
-		} else {
-			resolve(`Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/stock/chart1?ticker=AMD`);
-		}
+      resolve(returnstring);
+    } else {
+      resolve(
+        `Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/stock/chart1?ticker=AMD`
+      );
+    }
   });
 }
 
-function getChartTwo (req) {
-  return new Promise(async (resolve, reject) => {
-		if (((req.query.ticker) && req.query.ticker.length > 0) || ((req.body.text) && req.body.text.length > 0)) {
-			const args = req.query.ticker || req.body.text;
-			const returnstring = `https://charts.finviz.com/chart.ashx?width=400&height=151&t=${args}&p=i5&ty=c&s=l&rr=${new Date().getTime()}`
+function getChartTwo(req) {
+  /*eslint-disable */
+  return new Promise(async (resolve) => {
+    /*eslint-enable */
+    if (
+      (req.query.ticker && req.query.ticker.length > 0) ||
+      (req.body.text && req.body.text.length > 0)
+    ) {
+      const args = req.query.ticker || req.body.text;
+      const returnstring = `https://charts.finviz.com/chart.ashx?width=400&height=151&t=${args}&p=i5&ty=c&s=l&rr=${new Date().getTime()}`;
 
-			resolve(returnstring);
-		} else {
-			resolve(`Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/chart/finviz/day?ticker=AMD`);
-		}
+      resolve(returnstring);
+    } else {
+      resolve(
+        `Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/chart/finviz/day?ticker=AMD`
+      );
+    }
   });
 }
 
-function getFinVizChartWeek (req) {
-  return new Promise(async (resolve, reject) => {
-		if (((req.query.ticker) && req.query.ticker.length > 0) || ((req.body.text) && req.body.text.length > 0)) {
-			const args = req.query.ticker || req.body.text;
-			const returnstring = `https://charts.finviz.com/chart.ashx?width=400&height=151&t=${args}&p=i15&ty=c&s=l&rr=${new Date().getTime()}`
+function getFinVizChartWeek(req) {
+  /*eslint-disable */
+  return new Promise(async (resolve) => {
+    /*eslint-enable */
+    if (
+      (req.query.ticker && req.query.ticker.length > 0) ||
+      (req.body.text && req.body.text.length > 0)
+    ) {
+      const args = req.query.ticker || req.body.text;
+      const returnstring = `https://charts.finviz.com/chart.ashx?width=400&height=151&t=${args}&p=i15&ty=c&s=l&rr=${new Date().getTime()}`;
 
-			resolve(returnstring);
-		} else {
-			resolve(`Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/chart/finviz/week?ticker=AMD`);
-		}
+      resolve(returnstring);
+    } else {
+      resolve(
+        `Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/chart/finviz/week?ticker=AMD`
+      );
+    }
   });
 }
 
-function getFinVizChartYear (req) {
-  return new Promise(async (resolve, reject) => {
-		if (((req.query.ticker) && req.query.ticker.length > 0) || ((req.body.text) && req.body.text.length > 0)) {
-			const args = req.query.ticker || req.body.text;
-			const returnstring = `https://charts.finviz.com/chart.ashx?width=400&height=151&t=${args}&p=i100&ty=c&s=l&rr=${new Date().getTime()}`
+function getFinVizChartYear(req) {
+  /*eslint-disable */
+  return new Promise(async (resolve) => {
+    /*eslint-enable */
+    if (
+      (req.query.ticker && req.query.ticker.length > 0) ||
+      (req.body.text && req.body.text.length > 0)
+    ) {
+      const args = req.query.ticker || req.body.text;
+      const returnstring = `https://charts.finviz.com/chart.ashx?width=400&height=151&t=${args}&p=i100&ty=c&s=l&rr=${new Date().getTime()}`;
 
-			resolve(returnstring);
-		} else {
-			resolve(`Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/chart/finviz/year?ticker=AMD`);
-		}
+      resolve(returnstring);
+    } else {
+      resolve(
+        `Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/chart/finviz/year?ticker=AMD`
+      );
+    }
   });
 }
 
-function getStockInfo (req) {
-  return new Promise(async (resolve, reject) => {
-		if (((req.query.ticker) && req.query.ticker.length > 0) || ((req.body.text) && req.body.text.length > 0)) {
-			const args = req.query.ticker || req.body.text;
-			try {
-				const stock = await finvizor.stock(args);
-				stock.change = (stock.change < 0) ? `📉 (${stock.change})%` : `📈 ${stock.change}%`;
-				stock.targetPrice = (stock.targetPrice < stock.price) ? `${stock.targetPrice} 🚩` : `${stock.targetPrice} ✅`;
-				stock.rsi = (stock.rsi > 70) ? `📉 ${stock.rsi} Overbought 🚩` : (stock.rsi < 30) ? `📈 ${stock.rsi} Oversold ✅` : `${stock.rsi}`;
-				console.log(util.inspect(stock));
-				stock.sma20 = (stock.sma20 > 0) ? `${stock.sma20} 🚩` : `${stock.sma20} ✅`;
-				stock.sma50 = (stock.sma50 > 0) ? `${stock.sma50} 🚩` : `${stock.sma50} ✅`;
-				stock.sma200 = (stock.sma200 > 0) ? `${stock.sma200} 🚩` : `${stock.sma200} ✅`;
-				const returnstring =
-`> *${stock.ticker}* - *${stock.name}*
+function getStockInfo(req) {
+  /*eslint-disable */
+  return new Promise(async (resolve) => {
+    /*eslint-enable */
+    if (
+      (req.query.ticker && req.query.ticker.length > 0) ||
+      (req.body.text && req.body.text.length > 0)
+    ) {
+      const args = req.query.ticker || req.body.text;
+      try {
+        const stock = await finvizor.stock(args);
+        stock.change =
+          stock.change < 0 ? `📉 (${stock.change})%` : `📈 ${stock.change}%`;
+        stock.targetPrice =
+          stock.targetPrice < stock.price
+            ? `${stock.targetPrice} 🚩`
+            : `${stock.targetPrice} ✅`;
+        stock.rsi =
+          stock.rsi > 70
+            ? `📉 ${stock.rsi} Overbought 🚩`
+            : stock.rsi < 30
+            ? `📈 ${stock.rsi} Oversold ✅`
+            : `${stock.rsi}`;
+        console.log(util.inspect(stock));
+        stock.sma20 =
+          stock.sma20 > 0 ? `${stock.sma20} 🚩` : `${stock.sma20} ✅`;
+        stock.sma50 =
+          stock.sma50 > 0 ? `${stock.sma50} 🚩` : `${stock.sma50} ✅`;
+        stock.sma200 =
+          stock.sma200 > 0 ? `${stock.sma200} 🚩` : `${stock.sma200} ✅`;
+        const returnstring = `> *${stock.ticker}* - *${stock.name}*
 > *Current Price:* ${stock.price}	${stock.change}
 > *Relative Strength Index (RSI):* ${stock.rsi}
 > *52-week Range:* ${stock.range52W.low} - ${stock.range52W.high}
@@ -85,15 +129,23 @@ function getStockInfo (req) {
 > *sma20:* ${stock.sma20}
 > *sma50:* ${stock.sma50}
 > *sma200:* ${stock.sma200}`;
-				resolve(returnstring);
-			} catch(error) {
-				logger.error(`Error ${error}`);
-				resolve('Are you trying to make me crash?');
-			}
-		} else {
-			resolve(`Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/stock/info?ticker=SNDL`);
-		}
+        resolve(returnstring);
+      } catch (error) {
+        logger.error(`Error ${error}`);
+        resolve("Are you trying to make me crash?");
+      }
+    } else {
+      resolve(
+        `Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/stock/info?ticker=SNDL`
+      );
+    }
   });
 }
 
-module.exports = {getStockInfo, getChartOne, getChartTwo, getFinVizChartWeek, getFinVizChartYear}
+module.exports = {
+  getStockInfo,
+  getChartOne,
+  getChartTwo,
+  getFinVizChartWeek,
+  getFinVizChartYear,
+};
