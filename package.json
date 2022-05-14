@@ -24,7 +24,7 @@
   "dependencies": {
     "express": "4.17.1",
     "finvizor": "1.0.7",
-    "helmet": "4.6.0",
+    "helmet": "5.0.2",
     "sst": "git+https://github.com/wh-iterabb-it/sst.git"
   },
   "devDependencies": {
