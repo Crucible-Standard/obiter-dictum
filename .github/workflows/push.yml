@@ -35,8 +35,8 @@ jobs:
       - name: Install Dependencies . . .
         working-directory: .
         run: npm ci
-      - name: Build Docker Image "Crucible-Standard/obiter-dictum" . . .
-        run: docker build -t Crucible-Standard/obiter-dictum
+      - name: Build Docker Image "crucible-standard/obiter-dictum" . . .
+        run: docker build -t crucible-standard/obiter-dictum
       - name: Run The Tests . . .
-        run: docker run Crucible-Standard/obiter-dictum npm run test
+        run: docker run crucible-standard/obiter-dictum npm run test
 
