@@ -19,9 +19,9 @@ jobs:
         working-directory: .
         run: npm ci
       - name: Build Docker Image "dictum" . . .
-        run: docker build -t dictum
+        run: docker build
       - name: Run The Tests . . .
-        run: docker run dictum npm run test:lint
+        run: docker run npm run test:lint
   tests:
     name: test
     runs-on: ubuntu-latest
@@ -36,6 +36,6 @@ jobs:
         working-directory: .
         run: npm ci
       - name: Build Docker Image "dictum" . . .
-        run: docker build -t dictum
+        run: docker build
       - name: Run The Tests . . .
-        run: docker run dictum npm run test
+        run: docker run npm run test
