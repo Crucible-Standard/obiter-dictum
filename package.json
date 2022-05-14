@@ -1,11 +1,7 @@
 {
   "name": "obiter-dictum",
-  "version": "1.0.0",
-  "description": "",
-  "main": "./src/app.js",
-  "scripts": {
-    "start": "node src/app.js"
-  },
+  "version": "1.1.0",
+  "description": "A small financial data api tool.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Crucible-Standard/obiter-dictum.git"
@@ -17,11 +13,30 @@
   "contributors": [
     "Beau Bouchard <https://github.com/BeauBouchard>"
   ],
-  "license": "ISC",
+  "license": "MIT",
+  "scripts": {
+    "cover": "nyc npm test && nyc report --reporter=text-lcov > coverage.lcov && ./node_modules/.bin/codecov",
+    "start": "node ./src/app.js",
+    "test": "node_modules/.bin/mocha tests/. --recursive",
+    "test:lint": "eslint .",
+    "test:lint:fix": "eslint . --fix --ignore-pattern polyfills"
+  },
   "dependencies": {
     "express": "4.17.1",
     "finvizor": "1.0.7",
     "helmet": "4.6.0",
     "sst": "git+https://github.com/wh-iterabb-it/sst.git"
+  },
+  "devDependencies": {
+    "chai": "4.2.0",
+    "chai-http": "^4.3.0",
+    "codecov": "3.8.3",
+    "eslint": "8.15.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "mocha": "10.0.0",
+    "nyc": "15.1.0",
+    "prettier": "2.6.2"
   }
 }
