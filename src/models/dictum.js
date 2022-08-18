@@ -108,9 +108,9 @@ function getStockInfo(req) {
         console.log(util.inspect(stock));
         stock.sma20a =
           stock.sma20 > 0 ? `${stock.sma20} 🚩` : `${stock.sma20} ✅`;
-        stock.sma50 =
+        stock.sma50a =
           stock.sma50 > 0 ? `${stock.sma50} 🚩` : `${stock.sma50} ✅`;
-        stock.sma200 =
+        stock.sma200a =
           stock.sma200 > 0 ? `${stock.sma200} 🚩` : `${stock.sma200} ✅`;
         const returnstring = `> *${stock.ticker}* - *${stock.name}*
 > *Current Price:* ${stock.price}	${stock.change}
