@@ -123,9 +123,9 @@ function getStockInfo(req) {
 > *Insider Ownership:* ${stock.insiderOwn}%
 > *Shares Outstanding:* ${stock.shsOutstand}
 > *Shares Float:* ${stock.shsFloat}
-> *sma20:* ${stock.sma20} (${stock.sma20a})
-> *sma50:* ${stock.sma50} (${stock.sma50a})
-> *sma200:* ${stock.sma200} (${stock.sma200a})`;
+> *sma20:* ${stock.sma20} (${sma20a})
+> *sma50:* ${stock.sma50} (${sma50a})
+> *sma200:* ${stock.sma200} (${sma200a})`;
         resolve(returnstring);
       } catch (error) {
         logger.error(`Error ${error}`);
