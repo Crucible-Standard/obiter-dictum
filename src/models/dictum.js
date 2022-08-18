@@ -106,9 +106,9 @@ function getStockInfo(req) {
             ? `📈 ${stock.rsi} Oversold ✅`
             : `${stock.rsi}`;
         console.log(util.inspect(stock));
-				stock.sma20a = (stock.sma20 - stock.price)>0 ? `${stock.sma20} 🚩` : `${stock.sma20} ✅`;
-				stock.sma50a = (stock.sma50 - stock.price)>0 ? `${stock.sma50} 🚩` : `${stock.sma50} ✅`;
-				stock.sma200a = (stock.sma200 - stock.price)>0 ? `${stock.sma200} 🚩` : `${stock.sma200} ✅`;
+        const sma20a = (stock.sma20 - stock.price)>0 ? `${(stock.sma20 - stock.price)} (${stock.sma20}) 🚩` : `${(stock.sma20 - stock.price)} (${stock.sma20})  ✅`;
+        const sma50a = (stock.sma50 - stock.price)>0 ? `${(stock.sma50 - stock.price)} (${stock.sma50}) 🚩` : `${(stock.sma50 - stock.price)} (${stock.sma50})  ✅`;
+        const sma200a = (stock.sma200 - stock.price)>0 ? `${(stock.sma200 - stock.price)} (${stock.sma200}) 🚩` : `${(stock.sma200 - stock.price)} (${stock.sma200})  ✅`;
         const returnstring = `> *${stock.ticker}* - *${stock.name}*
 > *Current Price:* ${stock.price}	${stock.change}
 > *Relative Strength Index (RSI):* ${stock.rsi}
