@@ -3,8 +3,7 @@
 [![Issues](https://img.shields.io/github/issues/Crucible-Standard/obiter-dictum.svg)](https://github.com/Crucible-Standard/obiter-dictum/issues)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Crucible-Standard/obiter-dictum/blob/main/LICENSE)
 ![Known Vulnerabilities](https://snyk.io/test/github/Crucible-Standard/obiter-dictum/badge.svg)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/Crucible-Standard/obiter-dictum.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Crucible-Standard/obiter-dictum/alerts/) 
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Crucible-Standard/obiter-dictum.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Crucible-Standard/obiter-dictum/context:javascript)
+
 
 A small financial api / tool which is used to get short delayed information about stock tickers from finviz's and other APIs. 
 
