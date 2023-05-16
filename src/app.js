@@ -239,6 +239,9 @@ app.get("/health", (req, res) => {
   );
   res.status(200).send({
     data: {
+      message	"ok",
+    },
+    meta: {
       uptime: uptime,
       version: pkjson.version,
       requests: requestsCount,
