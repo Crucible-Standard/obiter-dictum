@@ -1,6 +1,9 @@
 {
   "name": "obiter-dictum",
   "version": "1.2.1",
+  "engines": {
+    "node": "16.x"
+  },
   "description": "A small financial data api tool.",
   "repository": {
     "type": "git",
