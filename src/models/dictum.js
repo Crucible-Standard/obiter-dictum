@@ -16,7 +16,7 @@ function getChartOne(req) {
       resolve(returnstring);
     } else {
       resolve(
-        `Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/stock/chart1?ticker=AMD`
+        `Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/stock/chart1?ticker=AMD`,
       );
     }
   });
@@ -36,7 +36,7 @@ function getChartTwo(req) {
       resolve(returnstring);
     } else {
       resolve(
-        `Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/chart/finviz/day?ticker=AMD`
+        `Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/chart/finviz/day?ticker=AMD`,
       );
     }
   });
@@ -56,7 +56,7 @@ function getFinVizChartWeek(req) {
       resolve(returnstring);
     } else {
       resolve(
-        `Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/chart/finviz/week?ticker=AMD`
+        `Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/chart/finviz/week?ticker=AMD`,
       );
     }
   });
@@ -76,7 +76,7 @@ function getFinVizChartYear(req) {
       resolve(returnstring);
     } else {
       resolve(
-        `Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/chart/finviz/year?ticker=AMD`
+        `Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/chart/finviz/year?ticker=AMD`,
       );
     }
   });
@@ -103,8 +103,8 @@ function getStockInfo(req) {
           stock.rsi > 70
             ? `📉 ${stock.rsi} Overbought 🚩`
             : stock.rsi < 30
-            ? `📈 ${stock.rsi} Oversold ✅`
-            : `${stock.rsi}`;
+              ? `📈 ${stock.rsi} Oversold ✅`
+              : `${stock.rsi}`;
         console.log(util.inspect(stock));
         const sma20a =
           stock.sma20 > 0
@@ -142,7 +142,7 @@ function getStockInfo(req) {
       }
     } else {
       resolve(
-        `Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/stock/info?ticker=SNDL`
+        `Please use the endpoint with a get param of 'ticker'. example https://orbiter-dictum.herokuapp.com/stock/info?ticker=SNDL`,
       );
     }
   });

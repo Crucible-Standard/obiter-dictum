@@ -26,7 +26,7 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
-    "Accept, Authorization, Content-Type, Origin, X-Requested-With"
+    "Accept, Authorization, Content-Type, Origin, X-Requested-With",
   );
   res.header("Access-Control-Allow-Methods", "GET");
   next();
@@ -45,7 +45,7 @@ app
     logger.info(
       `/stock/info request from ${
         req.headers["x-forwarded-for"] || req.connection.remoteAddress || req.ip
-      }`
+      }`,
     );
     await dictum
       .getStockInfo(req)
@@ -62,7 +62,7 @@ app
     logger.info(
       `/stock/info request from ${
         req.headers["x-forwarded-for"] || req.connection.remoteAddress || req.ip
-      }`
+      }`,
     );
     await dictum
       .getStockInfo(req)
@@ -86,7 +86,7 @@ app
     logger.info(
       `/stock/c1 request from ${
         req.headers["x-forwarded-for"] || req.connection.remoteAddress || req.ip
-      }`
+      }`,
     );
     await dictum
       .getChartOne(req)
@@ -103,7 +103,7 @@ app
     logger.info(
       `/chart/1 request from ${
         req.headers["x-forwarded-for"] || req.connection.remoteAddress || req.ip
-      }`
+      }`,
     );
     await dictum
       .getChartOne(req)
@@ -122,7 +122,7 @@ app
     logger.info(
       `/chart/finviz/day request from ${
         req.headers["x-forwarded-for"] || req.connection.remoteAddress || req.ip
-      }`
+      }`,
     );
     await dictum
       .getChartTwo(req)
@@ -139,7 +139,7 @@ app
     logger.info(
       `/chart/finviz/day request from ${
         req.headers["x-forwarded-for"] || req.connection.remoteAddress || req.ip
-      }`
+      }`,
     );
     await dictum
       .getChartTwo(req)
@@ -158,7 +158,7 @@ app
     logger.info(
       `/chart/finviz/week request from ${
         req.headers["x-forwarded-for"] || req.connection.remoteAddress || req.ip
-      }`
+      }`,
     );
     await dictum
       .getFinVizChartWeek(req)
@@ -175,7 +175,7 @@ app
     logger.info(
       `/chart/finviz/week request from ${
         req.headers["x-forwarded-for"] || req.connection.remoteAddress || req.ip
-      }`
+      }`,
     );
     await dictum
       .getFinVizChartWeek(req)
@@ -194,7 +194,7 @@ app
     logger.info(
       `/chart/finviz/year request from ${
         req.headers["x-forwarded-for"] || req.connection.remoteAddress || req.ip
-      }`
+      }`,
     );
     await dictum
       .getFinVizChartYear(req)
@@ -211,7 +211,7 @@ app
     logger.info(
       `/chart/finviz/year request from ${
         req.headers["x-forwarded-for"] || req.connection.remoteAddress || req.ip
-      }`
+      }`,
     );
     await dictum
       .getFinVizChartYear(req)
@@ -235,7 +235,7 @@ app.get("/health", (req, res) => {
   logger.info(
     `/health request from ${
       req.headers["x-forwarded-for"] || req.connection.remoteAddress || req.ip
-    }`
+    }`,
   );
   res.status(200).send({
     data: {
