@@ -28,7 +28,7 @@
     "express": "4.19.2",
     "finvizor": "1.2.1",
     "helmet": "7.1.0",
-    "sst": "git+https://github.com/wh-iterabb-it/sst.git"
+    "sst": "1.16.0"
   },
   "devDependencies": {
     "chai": "4.3.10",
