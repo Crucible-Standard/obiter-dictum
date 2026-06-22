@@ -51,7 +51,7 @@ function getFinVizChartWeek(req) {
       (req.body.text && req.body.text.length > 0)
     ) {
       const args = req.query.ticker || req.body.text;
-      const returnstring = `https://charts2.finviz.com/chart.ashx?width=400&height=151&t=${args}&p=i15&ty=c&s=l&rr=${new Date().getTime()}`;
+      const returnstring = `https://charts.finviz.com/chart.ashx?width=400&height=151&t=${args}&p=i15&ty=c&s=l&rr=${new Date().getTime()}`;
 
       resolve(returnstring);
     } else {
